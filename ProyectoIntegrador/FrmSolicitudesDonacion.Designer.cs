@@ -61,6 +61,19 @@
             cmbTipoSolicitud = new ComboBox();
             btnVolverMenu = new Button();
             lblNuevaSolicitud = new Label();
+            pnlHistorialSolicitudes = new Panel();
+            btnVolverHistorial = new Button();
+            btnRechazarSolicitud = new Button();
+            btnAprobarSolicitud = new Button();
+            btnActualizarHistorial = new Button();
+            txtObservacionAdmin = new TextBox();
+            cmbFiltroEstado = new ComboBox();
+            txtBuscarSolicitud = new TextBox();
+            dgvHistorialSolicitudes = new DataGridView();
+            lblObservacionAdmin = new Label();
+            lblFiltroEstado = new Label();
+            lblBuscarSolicitud = new Label();
+            lblTituloHistorial = new Label();
             pnelSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picSolicitudesNuevas).BeginInit();
             pnelMenu.SuspendLayout();
@@ -72,6 +85,8 @@
             pnlTarjetaInicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picInicio).BeginInit();
             pnlNuevaSolicitud.SuspendLayout();
+            pnlHistorialSolicitudes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvHistorialSolicitudes).BeginInit();
             SuspendLayout();
             // 
             // pnelSuperior
@@ -341,37 +356,37 @@
             txtDescripcionSolicitud.Location = new Point(12, 332);
             txtDescripcionSolicitud.Multiline = true;
             txtDescripcionSolicitud.Name = "txtDescripcionSolicitud";
+            txtDescripcionSolicitud.PlaceholderText = "Descripcion de la Solicitud";
             txtDescripcionSolicitud.ScrollBars = ScrollBars.Vertical;
             txtDescripcionSolicitud.Size = new Size(765, 90);
             txtDescripcionSolicitud.TabIndex = 7;
-            txtDescripcionSolicitud.Text = "Descripcion de la Solicitud";
             // 
             // txtCorreoSolicitante
             // 
             txtCorreoSolicitante.Location = new Point(12, 266);
             txtCorreoSolicitante.Multiline = true;
             txtCorreoSolicitante.Name = "txtCorreoSolicitante";
+            txtCorreoSolicitante.PlaceholderText = "correo@ejemplo.com";
             txtCorreoSolicitante.Size = new Size(765, 39);
             txtCorreoSolicitante.TabIndex = 6;
-            txtCorreoSolicitante.Text = "correo@ejemplo.com";
             // 
             // txtTelefonoSolicitante
             // 
             txtTelefonoSolicitante.Location = new Point(12, 184);
             txtTelefonoSolicitante.Multiline = true;
             txtTelefonoSolicitante.Name = "txtTelefonoSolicitante";
+            txtTelefonoSolicitante.PlaceholderText = "Número de Contacto";
             txtTelefonoSolicitante.Size = new Size(516, 39);
             txtTelefonoSolicitante.TabIndex = 5;
-            txtTelefonoSolicitante.Text = "Número de Contacto";
             // 
             // txtNombreSolicitante
             // 
             txtNombreSolicitante.Location = new Point(12, 120);
             txtNombreSolicitante.Multiline = true;
             txtNombreSolicitante.Name = "txtNombreSolicitante";
+            txtNombreSolicitante.PlaceholderText = "Nombre del Solicitante";
             txtNombreSolicitante.Size = new Size(516, 37);
             txtNombreSolicitante.TabIndex = 4;
-            txtNombreSolicitante.Text = "Nombre del Solicitante";
             // 
             // dtpFechaSolicitud
             // 
@@ -413,18 +428,166 @@
             lblNuevaSolicitud.Text = "Nueva Solicitud";
             lblNuevaSolicitud.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // pnlHistorialSolicitudes
+            // 
+            pnlHistorialSolicitudes.AutoScroll = true;
+            pnlHistorialSolicitudes.Controls.Add(btnVolverHistorial);
+            pnlHistorialSolicitudes.Controls.Add(btnRechazarSolicitud);
+            pnlHistorialSolicitudes.Controls.Add(btnAprobarSolicitud);
+            pnlHistorialSolicitudes.Controls.Add(btnActualizarHistorial);
+            pnlHistorialSolicitudes.Controls.Add(txtObservacionAdmin);
+            pnlHistorialSolicitudes.Controls.Add(cmbFiltroEstado);
+            pnlHistorialSolicitudes.Controls.Add(txtBuscarSolicitud);
+            pnlHistorialSolicitudes.Controls.Add(dgvHistorialSolicitudes);
+            pnlHistorialSolicitudes.Controls.Add(lblObservacionAdmin);
+            pnlHistorialSolicitudes.Controls.Add(lblFiltroEstado);
+            pnlHistorialSolicitudes.Controls.Add(lblBuscarSolicitud);
+            pnlHistorialSolicitudes.Controls.Add(lblTituloHistorial);
+            pnlHistorialSolicitudes.Dock = DockStyle.Fill;
+            pnlHistorialSolicitudes.Location = new Point(0, 0);
+            pnlHistorialSolicitudes.Name = "pnlHistorialSolicitudes";
+            pnlHistorialSolicitudes.Size = new Size(859, 641);
+            pnlHistorialSolicitudes.TabIndex = 17;
+            // 
+            // btnVolverHistorial
+            // 
+            btnVolverHistorial.FlatStyle = FlatStyle.Flat;
+            btnVolverHistorial.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnVolverHistorial.Location = new Point(30, 585);
+            btnVolverHistorial.Name = "btnVolverHistorial";
+            btnVolverHistorial.Size = new Size(140, 40);
+            btnVolverHistorial.TabIndex = 12;
+            btnVolverHistorial.Text = "Volver al Menú";
+            btnVolverHistorial.UseVisualStyleBackColor = true;
+            // 
+            // btnRechazarSolicitud
+            // 
+            btnRechazarSolicitud.BackColor = Color.Red;
+            btnRechazarSolicitud.FlatStyle = FlatStyle.Flat;
+            btnRechazarSolicitud.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRechazarSolicitud.Location = new Point(570, 535);
+            btnRechazarSolicitud.Name = "btnRechazarSolicitud";
+            btnRechazarSolicitud.Size = new Size(140, 40);
+            btnRechazarSolicitud.TabIndex = 11;
+            btnRechazarSolicitud.Text = "Rechazar";
+            btnRechazarSolicitud.UseVisualStyleBackColor = false;
+            // 
+            // btnAprobarSolicitud
+            // 
+            btnAprobarSolicitud.BackColor = Color.Green;
+            btnAprobarSolicitud.FlatStyle = FlatStyle.Flat;
+            btnAprobarSolicitud.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAprobarSolicitud.Location = new Point(410, 535);
+            btnAprobarSolicitud.Name = "btnAprobarSolicitud";
+            btnAprobarSolicitud.Size = new Size(140, 40);
+            btnAprobarSolicitud.TabIndex = 10;
+            btnAprobarSolicitud.Text = "Aprobar";
+            btnAprobarSolicitud.UseVisualStyleBackColor = false;
+            // 
+            // btnActualizarHistorial
+            // 
+            btnActualizarHistorial.BackColor = Color.MidnightBlue;
+            btnActualizarHistorial.FlatStyle = FlatStyle.Flat;
+            btnActualizarHistorial.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnActualizarHistorial.Location = new Point(250, 535);
+            btnActualizarHistorial.Name = "btnActualizarHistorial";
+            btnActualizarHistorial.Size = new Size(140, 40);
+            btnActualizarHistorial.TabIndex = 9;
+            btnActualizarHistorial.Text = "Actualizar";
+            btnActualizarHistorial.UseVisualStyleBackColor = false;
+            // 
+            // txtObservacionAdmin
+            // 
+            txtObservacionAdmin.Location = new Point(60, 450);
+            txtObservacionAdmin.Multiline = true;
+            txtObservacionAdmin.Name = "txtObservacionAdmin";
+            txtObservacionAdmin.PlaceholderText = "Observaciones...";
+            txtObservacionAdmin.Size = new Size(640, 65);
+            txtObservacionAdmin.TabIndex = 8;
+            // 
+            // cmbFiltroEstado
+            // 
+            cmbFiltroEstado.FormattingEnabled = true;
+            cmbFiltroEstado.Location = new Point(450, 128);
+            cmbFiltroEstado.Name = "cmbFiltroEstado";
+            cmbFiltroEstado.Size = new Size(250, 23);
+            cmbFiltroEstado.TabIndex = 7;
+            // 
+            // txtBuscarSolicitud
+            // 
+            txtBuscarSolicitud.Location = new Point(60, 130);
+            txtBuscarSolicitud.MaxLength = 100;
+            txtBuscarSolicitud.Multiline = true;
+            txtBuscarSolicitud.Name = "txtBuscarSolicitud";
+            txtBuscarSolicitud.PlaceholderText = "Nombre del solicitante...";
+            txtBuscarSolicitud.Size = new Size(350, 30);
+            txtBuscarSolicitud.TabIndex = 5;
+            // 
+            // dgvHistorialSolicitudes
+            // 
+            dgvHistorialSolicitudes.AllowUserToAddRows = false;
+            dgvHistorialSolicitudes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHistorialSolicitudes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHistorialSolicitudes.GridColor = Color.White;
+            dgvHistorialSolicitudes.Location = new Point(60, 190);
+            dgvHistorialSolicitudes.MultiSelect = false;
+            dgvHistorialSolicitudes.Name = "dgvHistorialSolicitudes";
+            dgvHistorialSolicitudes.ReadOnly = true;
+            dgvHistorialSolicitudes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvHistorialSolicitudes.Size = new Size(640, 210);
+            dgvHistorialSolicitudes.TabIndex = 4;
+            // 
+            // lblObservacionAdmin
+            // 
+            lblObservacionAdmin.Font = new Font("Segoe UI Historic", 12F, FontStyle.Bold);
+            lblObservacionAdmin.Location = new Point(60, 420);
+            lblObservacionAdmin.Name = "lblObservacionAdmin";
+            lblObservacionAdmin.Size = new Size(300, 25);
+            lblObservacionAdmin.TabIndex = 3;
+            lblObservacionAdmin.Text = "Observación del Administrador";
+            lblObservacionAdmin.Click += lblObservacionAdministrador_Click;
+            // 
+            // lblFiltroEstado
+            // 
+            lblFiltroEstado.Font = new Font("Segoe UI Historic", 12F, FontStyle.Bold);
+            lblFiltroEstado.Location = new Point(450, 100);
+            lblFiltroEstado.Name = "lblFiltroEstado";
+            lblFiltroEstado.Size = new Size(220, 25);
+            lblFiltroEstado.TabIndex = 2;
+            lblFiltroEstado.Text = "Estado de solicitud";
+            // 
+            // lblBuscarSolicitud
+            // 
+            lblBuscarSolicitud.Font = new Font("Segoe UI Historic", 12F, FontStyle.Bold);
+            lblBuscarSolicitud.Location = new Point(60, 100);
+            lblBuscarSolicitud.Name = "lblBuscarSolicitud";
+            lblBuscarSolicitud.Size = new Size(220, 25);
+            lblBuscarSolicitud.TabIndex = 1;
+            lblBuscarSolicitud.Text = "Buscar Solicitante";
+            lblBuscarSolicitud.Click += lblSolicitante_Click;
+            // 
+            // lblTituloHistorial
+            // 
+            lblTituloHistorial.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTituloHistorial.Location = new Point(30, 25);
+            lblTituloHistorial.Name = "lblTituloHistorial";
+            lblTituloHistorial.Size = new Size(350, 40);
+            lblTituloHistorial.TabIndex = 0;
+            lblTituloHistorial.Text = "Historial de Solicitudes";
+            // 
             // FrmSolicitudes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
             ClientSize = new Size(859, 641);
-            Controls.Add(pnlNuevaSolicitud);
             Controls.Add(pnlTarjetaInicio);
             Controls.Add(pnlTarjetaDonantes);
             Controls.Add(pnlContenido);
             Controls.Add(pnelMenu);
             Controls.Add(pnelSuperior);
+            Controls.Add(pnlHistorialSolicitudes);
+            Controls.Add(pnlNuevaSolicitud);
             ForeColor = Color.White;
             Name = "FrmSolicitudes";
             StartPosition = FormStartPosition.CenterScreen;
@@ -442,6 +605,9 @@
             ((System.ComponentModel.ISupportInitialize)picInicio).EndInit();
             pnlNuevaSolicitud.ResumeLayout(false);
             pnlNuevaSolicitud.PerformLayout();
+            pnlHistorialSolicitudes.ResumeLayout(false);
+            pnlHistorialSolicitudes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvHistorialSolicitudes).EndInit();
             ResumeLayout(false);
         }
 
@@ -479,5 +645,19 @@
         private Label lblTelefono;
         private Label lblSolicitud;
         private Label lblFechaSolicitud;
+        private Panel pnlHistorialSolicitudes;
+        private Label lblTituloHistorial;
+        private DataGridView dgvHistorialSolicitudes; private Label lblObservacionAdmin;
+        private Label lblFiltroEstado;
+        private Label lblBuscarSolicitud;
+        private TextBox txtBuscarSolicitud;
+        private ComboBox cmbFiltroEstado;
+        private Label label1;
+        private TextBox txtObservacionAdmin;
+        private Button btnVolverHistorial;
+        private Button btnRechazarSolicitud;
+        private Button btnAprobarSolicitud;
+        private Button btnActualizarHistorial;
+        private Panel panel1;
     }
 }
