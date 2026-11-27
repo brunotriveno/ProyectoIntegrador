@@ -52,6 +52,10 @@ namespace ProyectoIntegrador.Formularios
                     "Acceso correcto",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+                FrmMenuPrincipal menuPrincipal = new FrmMenuPrincipal();
+                menuPrincipal.FormClosed += (sender, e) => this.Close();
+                menuPrincipal.Show();
+                this.Hide();
             }
             else
             {
